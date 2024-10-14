@@ -1,1 +1,1 @@
-export const DB_NAME = "ATTUBE";
+export const DB_NAME = "Backend-learn";
