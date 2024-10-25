@@ -99,8 +99,8 @@ export const loginUser = asyncHandler(async function (req, res) {
   // Get data from req body - username, email and password
   const { username, email, password } = req.body;
 
-  // Check if username and email is there
-  if (!username || !email)
+  // Check if username and email are there
+  if (!username && !email)
     throw new ApiError(400, "username or email is required");
 
   // Find and Check if user exists or not using username and email (either or)
@@ -163,6 +163,6 @@ export const logoutUser = asyncHandler(async function (req, res) {
   return res
     .status(200)
     .clearCookie("accessToken", options)
-    .clearCookie("accessToken", options)
+    .clearCookie("refreshToken", options)
     .json(new ApiResponse(200, {}, "User logged out"));
 });
